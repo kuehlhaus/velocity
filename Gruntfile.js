@@ -25,6 +25,15 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		concat: {
+    		options: {
+      			separator: ';',
+    		},
+    		dist: {
+      			src: ['velocity.js', 'velocity.ui.js'],
+      			dest: 'velocity.combined.js',
+    		}
+  		},
 		uglify: {
 			my_target: {
 				options: {
@@ -33,14 +42,16 @@ module.exports = function(grunt) {
 				},
 				files: {
 					'velocity.min.js': ['velocity.js'],
-					'velocity.ui.min.js': ['velocity.ui.js']
+					'velocity.ui.min.js': ['velocity.ui.js'],
+					'velocity.combined.min.js': ['velocity.combined.js']
 				}
 			}
 		}
 	});
 
+	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 
-	grunt.registerTask('default', ['jshint', 'uglify']);
+	grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
 };

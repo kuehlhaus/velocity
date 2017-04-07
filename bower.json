@@ -11,7 +11,7 @@
     }
   ],
   "description": "Accelerated JavaScript animation.",
-  "main": [ "./velocity.js", "./velocity.ui.js"],
+  "main": [ "./velocity.combined.js"],
   "keywords": [
     "animation",
     "jquery",
